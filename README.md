@@ -35,7 +35,6 @@ func (obj *Master) ProcessDisConn() {
 ### IConnEvent 接口，当前连接基本操作响应（可选）
 
 ```go
-
 type ConnS struct{} // 实现IConnEvent 接口
 
 func (obj *ConnS) Reading(buf []byte) {} // Socket获取信息时执行
@@ -47,7 +46,6 @@ func (obj *ConnS) Disconnect() {} // Socket断开连接时执行
 ```
 
 ### 开始连接
-
 ```go
 co := &Master{}
 c.NewDailTcp(co, ":9001")
@@ -56,7 +54,6 @@ co.EventResponse(msg.GenResKeyMsg("success")) // 当连接成功后发送消息�
 ```
 
 ### 开始监听端口
-
 ```go
 co := &Master{}
 lis := c.Listen("tcp", ":9001")
