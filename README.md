@@ -1,10 +1,10 @@
 # communication
 
-## 自定义通讯包
+    自定义通讯包
 
 # 使用方法
 
-## 引用包
+### 引用包
 
 ```go
 import (
@@ -13,7 +13,7 @@ import (
 )
 ```
 
-## 实现 IMaster 主接口(必须)
+### 实现 IMaster 主接口(必须)
 ```go
 type Master struct{} // 实现IMaster接口
 
@@ -32,7 +32,7 @@ func (obj *Master) ProcessDisConn() {
 } // 客户端断开连接后访问该方法
 ```
 
-## IConnEvent 接口，当前连接基本操作响应（可选）
+### IConnEvent 接口，当前连接基本操作响应（可选）
 
 ```go
 
@@ -46,7 +46,7 @@ func (obj *ConnS) Connection() {
 func (obj *ConnS) Disconnect() {} // Socket断开连接时执行
 ```
 
-## 开始监听端口
+### 开始监听端口
 
 ```go
 co := &Master{}
