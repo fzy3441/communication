@@ -4,7 +4,7 @@ package communication
 type IMaster interface {
 	InitObj(event *Event) // 初始化当前对象到使用者
 	// Message() *IMessage          // 设计并创建消息类型
-	ProcessReq(data interface{}) // 处理客户端数据信息
+	ProcessReq(data *ReqMessage) // 处理客户端数据信息
 	ProcessDisConn()             // 客户端断开连接后访问该方法
 }
 
