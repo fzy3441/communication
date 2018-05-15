@@ -46,13 +46,19 @@ func (obj *ConnS) Connection() {
 func (obj *ConnS) Disconnect() {} // Socket断开连接时执行
 ```
 
+### 开始连接
+
+```go
+co := &Master{}
+c.NewDailTcp(co, ":9001")
+msg := c.MsgInfo{} //  包自带消息类，可实现消息专用接口 IMessage,修改消息类型
+co.EventResponse(msg.GenResKeyMsg("success")) // 当连接成功后发送消息给客户端
+```
+
 ### 开始监听端口
 
 ```go
 co := &Master{}
- c.NewDailTcp(co, ":9001")
- msg := c.MsgInfo{} //  包自带消息类，可实现消息专用接口 IMessage,修改消息类型
- co.EventResponse(msg.GenResKeyMsg("success")) // 当连接成功后发送消息给客户端
+lis := c.Listen("tcp", ":9001")
+lis.Accept(co) // 等待连接成功 co 可操作返回数据
 ```
-
-
